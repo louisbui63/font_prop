@@ -1,0 +1,4 @@
+msvc-wine/
+*.dll
+*.lib
+*.obj
