@@ -49,7 +49,7 @@ if (OriginalModuleHandle == nullptr) {
     for exp in pe.DIRECTORY_ENTRY_EXPORT.symbols:
         if exp.name:
             print(f"__attribute__((naked)) void hooked__{exp.name.decode()}() {{")
-            print(f'  __asm__("jmp _real__{exp.name.decode()};":);')
+            print(f'  __asm__("jmp *_real__{exp.name.decode()};":);')
             print("}")
 
     print("/////////////////////////////proxy.hpp/////////////////////////////////")

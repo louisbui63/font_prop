@@ -28,35 +28,35 @@ void Proxy::Init(HMODULE hProxy) {
 }
 
 __attribute__((naked)) void hooked__D2D1ConvertColorSpace() {
-  __asm__("jmp _real__D2D1ConvertColorSpace;" :);
+  __asm__("jmp *_real__D2D1ConvertColorSpace;" :);
 }
 __attribute__((naked)) void hooked__D2D1CreateDevice() {
-  __asm__("jmp _real__D2D1CreateDevice;" :);
+  __asm__("jmp *_real__D2D1CreateDevice;" :);
 }
 __attribute__((naked)) void hooked__D2D1CreateDeviceContext() {
-  __asm__("jmp _real__D2D1CreateDeviceContext;" :);
+  __asm__("jmp *_real__D2D1CreateDeviceContext;" :);
 }
 __attribute__((naked)) void hooked__D2D1CreateFactory() {
-  __asm__("jmp _real__D2D1CreateFactory;" :);
+  __asm__("jmp *_real__D2D1CreateFactory;" :);
 }
 __attribute__((naked)) void hooked__D2D1InvertMatrix() {
-  __asm__("jmp _real__D2D1InvertMatrix;" :);
+  __asm__("jmp *_real__D2D1InvertMatrix;" :);
 }
 __attribute__((naked)) void hooked__D2D1IsMatrixInvertible() {
-  __asm__("jmp _real__D2D1IsMatrixInvertible;" :);
+  __asm__("jmp *_real__D2D1IsMatrixInvertible;" :);
 }
 __attribute__((naked)) void hooked__D2D1MakeRotateMatrix() {
-  __asm__("jmp _real__D2D1MakeRotateMatrix;" :);
+  __asm__("jmp *_real__D2D1MakeRotateMatrix;" :);
 }
 __attribute__((naked)) void hooked__D2D1MakeSkewMatrix() {
-  __asm__("jmp _real__D2D1MakeSkewMatrix;" :);
+  __asm__("jmp *_real__D2D1MakeSkewMatrix;" :);
 }
 __attribute__((naked)) void hooked__D2D1SinCos() {
-  __asm__("jmp _real__D2D1SinCos;" :);
+  __asm__("jmp *_real__D2D1SinCos;" :);
 }
 __attribute__((naked)) void hooked__D2D1Tan() {
-  __asm__("jmp _real__D2D1Tan;" :);
+  __asm__("jmp *_real__D2D1Tan;" :);
 }
 __attribute__((naked)) void hooked__D2D1Vec3Length() {
-  __asm__("jmp _real__D2D1Vec3Length;" :);
+  __asm__("jmp *_real__D2D1Vec3Length;" :);
 }
