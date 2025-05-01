@@ -5,6 +5,7 @@ CompileFlags:
     - "-fms-compatibility"
     - "-fms-extensions"
     - "-Wno-pragma-pack"
+    - "-Iinclude"
     - "-I/mnt/part2/owned/msvc/vc/tools/msvc/14.43.34808/atlmfc/include"
     - "-I/mnt/part2/owned/msvc/vc/tools/msvc/14.43.34808/include"
     - "-I/mnt/part2/owned/msvc/kits/10/include/10.0.22621.0/shared"

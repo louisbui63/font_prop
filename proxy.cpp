@@ -1,4 +1,21 @@
 #include "proxy.hpp"
+#include "d2d1.h"
+#include <cstdio>
+
+#include "spdlog/spdlog.h"
+
+__declspec(dllexport) void *real__D2D1ConvertColorSpace{};
+__declspec(dllexport) void *real__D2D1CreateDevice{};
+__declspec(dllexport) void *real__D2D1CreateDeviceContext{};
+__declspec(dllexport) void *real__D2D1CreateFactory{};
+__declspec(dllexport) void *real__D2D1InvertMatrix{};
+__declspec(dllexport) void *real__D2D1IsMatrixInvertible{};
+__declspec(dllexport) void *real__D2D1MakeRotateMatrix{};
+__declspec(dllexport) void *real__D2D1MakeSkewMatrix{};
+__declspec(dllexport) void *real__D2D1SinCos{};
+__declspec(dllexport) void *real__D2D1Tan{};
+__declspec(dllexport) void *real__D2D1Vec3Length{};
+
 void Proxy::Init(HMODULE hProxy) {
   ProxyModuleHandle = hProxy;
   wchar_t realDllPath[MAX_PATH];
@@ -6,8 +23,7 @@ void Proxy::Init(HMODULE hProxy) {
   wcscat_s(realDllPath, L"\\d2d1.dll");
   OriginalModuleHandle = LoadLibraryW(realDllPath);
   if (OriginalModuleHandle == nullptr) {
-    MessageBoxW(nullptr, L"Cannot load original d2d1.dll library", L"Proxy",
-                MB_ICONERROR);
+    spdlog::error("Cannot load original d2d1.dll library");
     ExitProcess(0);
   }
 #define RESOLVE(fn)                                                            \

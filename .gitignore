@@ -2,3 +2,4 @@ msvc-wine/
 *.dll
 *.lib
 *.obj
+*.i64*
