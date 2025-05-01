@@ -1,12 +1,15 @@
 #pragma comment(lib, "user32")
+#pragma comment(lib, "gdi32")
 #include "inicpp.hpp"
 #include "patcher.hpp"
+#include "prop.hpp"
 #include "proxy.hpp"
 
 #include <spdlog/spdlog.h>
 
 #include <d2d1.h>
 #include <windows.h>
+#include <wingdi.h>
 
 #include <string>
 
@@ -31,7 +34,8 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call,
       spdlog::set_level(spdlog::level::warn);
     spdlog::info("Injection d2d1.dll successful\n");
 
-    patch_function(real__D2D1CreateFactory, (void *)MyD2D1CreateFactoryHook);
+    patch_function((void *)CreateFontA, (void *)hooked__CreateFontA);
+    patch_function((void *)TextOutA, (void *)hooked__TextOutA);
   }
   case DLL_THREAD_ATTACH:
   case DLL_THREAD_DETACH:
@@ -40,6 +44,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call,
   }
   return TRUE;
 }
+///////////////////////////////////////////////////////////////////////////
 
 void **get_vtable(void *pInterface) {
   return *reinterpret_cast<void ***>(pInterface);
