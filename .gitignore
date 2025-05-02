@@ -3,3 +3,4 @@ msvc-wine/
 *.lib
 *.obj
 *.i64*
+build*
