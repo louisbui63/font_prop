@@ -4,3 +4,4 @@ msvc-wine/
 *.obj
 *.i64*
 build*
+.cache
