@@ -1,5 +1,6 @@
 #pragma once
 
+#define NOMINMAX
 #include <windows.h>
 
 HFONT __stdcall hooked__CreateFontA(
