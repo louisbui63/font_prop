@@ -1,7 +1,8 @@
 #include "patcher.hpp"
-#include "spdlog/spdlog.h"
 #include <cstdint>
 #include <map>
+#include <spdlog/spdlog.h>
+#include <windows.h>
 
 std::map<size_t, size_t> TRAMPOLINE_MAP{};
 

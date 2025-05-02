@@ -2,6 +2,7 @@
 
 #include <filesystem>
 #include <spdlog/spdlog.h>
+#include <windows.h>
 
 std::optional<std::string> FONT = std::nullopt;
 

@@ -1173,13 +1173,12 @@ protected: //! Non-static helper methods
   inline void set_non_sso_string_len(size_type string_len) noexcept {
     // Check, if NON_SSO is larger than its members, in which case it's not
     // ambiguated by SSO::data_len
-    if TINY_UTF8_CPP17 (constexpr)
-      (offsetof(SSO, data_len) >
-       offsetof(NON_SSO, string_len) + sizeof(NON_SSO::string_len) - 1) {
-        t_non_sso.string_len = string_len;
-        t_sso.data_len = 0x1; // Manually set flag to deactivate SSO
-      }
-    else if TINY_UTF8_CPP17 (constexpr)
+    if /* TINY_UTF8_CPP17 (constexpr) */
+        (offsetof(SSO, data_len) >
+         offsetof(NON_SSO, string_len) + sizeof(NON_SSO::string_len) - 1) {
+      t_non_sso.string_len = string_len;
+      t_sso.data_len = 0x1; // Manually set flag to deactivate SSO
+    } else if TINY_UTF8_CPP17 (constexpr)
       (tiny_utf8_detail::is_little_endian::value) {
         tiny_utf8_detail::last_byte<size_type> lb;
         lb.number = string_len;
