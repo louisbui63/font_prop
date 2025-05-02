@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstddef>
+
 #define GET_TRAMPOLINE(x) __get_trampoline((size_t)(x))
 
 size_t __get_trampoline(size_t x);

@@ -43,6 +43,7 @@ void Proxy::Init(HMODULE hProxy) {
 #undef RESOLVE
 }
 
+extern "C" {
 __attribute__((naked)) void hooked__D2D1ConvertColorSpace() {
   __asm__("jmp *_real__D2D1ConvertColorSpace;" :);
 }
@@ -75,4 +76,5 @@ __attribute__((naked)) void hooked__D2D1Tan() {
 }
 __attribute__((naked)) void hooked__D2D1Vec3Length() {
   __asm__("jmp *_real__D2D1Vec3Length;" :);
+}
 }
